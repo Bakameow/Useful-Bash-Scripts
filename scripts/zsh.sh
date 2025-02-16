@@ -20,7 +20,7 @@ fi
 # 克隆 zsh-autosuggestions 插件
 if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" ]; then
     echo -e "${RED}Cloning zsh-autosuggestions plugin...${RESET}"
-    git clone https://githuab.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 else
     echo -e "${RED}zsh-autosuggestions plugin is already installed.${RESET}"
 fi
@@ -34,4 +34,9 @@ else
 fi
 
 # 激活插件
+echo -e "${RED}activating plugins...${RESET}"
 sed -i 's/plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting)/' $HOME/.zshrc
+
+chsh -s /usr/bin/zsh
+
+echo -e "${GREEN}restart your terminal and 'source ~/.zshrc'${RESET}"
