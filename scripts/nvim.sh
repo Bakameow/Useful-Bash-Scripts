@@ -49,3 +49,5 @@ else
                 exit 1
         fi
 fi
+
+rm nvim-linux-x86_64.tar.gz
